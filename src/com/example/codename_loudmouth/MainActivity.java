@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.content.Intent;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
 	
 		Thread welcomeThread = new Thread(){
 		
-		@override
+		@Override
 		public void run(){
 			try {
 				super.run();
@@ -28,17 +29,13 @@ public class MainActivity extends ActionBarActivity {
 			} catch (Exception e){
 
 			} finally {
-				Intent i = new Intent(SplashActivity.this, MainActivity.class);
+				Intent i = new Intent();
 				startActivity(i);
-				finsih();
+				finish();
 			}
-		}
-	};
+			}
+		};
 	welcomeThread.start();
-
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
