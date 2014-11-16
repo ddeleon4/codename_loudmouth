@@ -1,6 +1,7 @@
 package hackduke.txtalk;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,12 +16,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //Initializes Firebase Lib
-        Firebase.setAndroidContext(this);
-
-        Firebase fbRef = new Firebase("https://txtalk.firebaseio.com");
-
-        fbRef.child("message").setValue("Sayin' Something.");
+        Intent i = new Intent(this, msgActivity.class);
+        startActivity(i);
+        finish();
     }
 
 
