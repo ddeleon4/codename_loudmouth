@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.client.Firebase;
+
 
 public class MainActivity extends Activity {
 
@@ -12,6 +14,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        //Initializes Firebase Lib
+        Firebase.setAndroidContext(this);
+
+        Firebase fbRef = new Firebase("https://txtalk.firebaseio.com");
+
+        fbRef.child("message").setValue("Sayin' Something.");
     }
 
 
